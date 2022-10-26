@@ -15,7 +15,6 @@ pub fn read_int(prompt: String) -> i32 {
         let trimmed = input_text.trim();
         // Parse the integer and return if valid otherwise prompt again.
         match trimmed.parse::<i32>() {
-            // Only valid if between 1 and 8
             Ok(i) => {
                 if i > 0 && i < 9 {
                     return i;

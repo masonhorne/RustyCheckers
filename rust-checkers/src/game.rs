@@ -43,6 +43,7 @@ impl Game {
             let mut flag: bool = false;
             while !self.board.move_piece((row1 - 1) as usize, (col1 - 1) as usize, (row2 - 1) as usize, (col2 - 1) as usize, player) {
                 if flag {
+                    self.board.display();
                     println!("Invalid move, please try again.")
                 }
                 flag = true;

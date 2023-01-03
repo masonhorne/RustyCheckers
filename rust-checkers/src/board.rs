@@ -85,12 +85,12 @@ impl Board {
         } else {
             // Otherwise make sure a piece will be taken
             // Calculate the pieces x and y
-            let x = col1 + (col2 - col1) / 2;
-            let y = row1 + (row2 - row1) / 2;
+            let x = if row2 > row1 { row1 + 1 } else { row1 - 1 };
+            let y = if col2 > col1 { col1 + 1 } else { col1 - 1 };
             // Make sure opponet is there
-            if player == 1 && self.board[x][y] != 2 {
+            if player == 1 && self.board[x][y] != 2 && self.board[x][y] != -2 {
                 return false;
-            } else if player == 2 && self.board[x][y] != 1 {
+            } else if player == 2 && self.board[x][y] != 1 && self.board[x][y] != -1 {
                 return false;
             }
             // Jump and return true
